@@ -21,9 +21,9 @@
 
 * Pyspark to analyze and apply sentiment analysis
 
-- From kafka we have used Spark kafka connector for structured streaming and connected to our kafka topic
-- We have first cleaned the data by removing spaces, non-ascii characters etc.
-- We then implemented Textblob classifier for sentiment analysis
+  * From kafka we have used Spark kafka connector for structured streaming and connected to our kafka topic
+  * We have first cleaned the data by removing spaces, non-ascii characters etc.
+  * We then implemented Textblob classifier for sentiment analysis
 - TextBlob is a python library and offers a simple API to access its methods and perform basic NLP tasks. 
 - After applying Textblod we get polarity score based on which take the Sentiment values
 
