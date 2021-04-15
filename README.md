@@ -29,10 +29,10 @@
 
 Polarity score  | Value
 ------------- | -------------
->0.1 & <0.5   |  Postive
->0.5          | Very Positive
-<-0.1 & >-0.5 |  Postive
-<-0.5         | Very Negative
+Between 0.1 & 0.5   |  Postive
+Greater thab 0.5          | Very Positive
+Between -0.1 and -0.5 |  Postive
+Less than -0.5        | Very Negative
 else          |  Neutral
 
 
