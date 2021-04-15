@@ -35,4 +35,18 @@ Between -0.1 and -0.5 |  Postive
 Less than -0.5        | Very Negative
 else          |  Neutral
 
+  * We then send the transformed streaming dataframe to a csv sink
+
+![Samplesentimentcsv](https://user-images.githubusercontent.com/82575873/114907256-857f4600-9e38-11eb-9261-abebdc533139.JPG)
+
+* Send CSV files to logstash for visualization on Kibana
+
+  *  To send the above formed csv files to logstash in realtime we are using filebeat
+  *  We are using filebeat as it is a event based tool and has a native integration with the ELK stack
+  *  Using filebeat we configured the directory where csv files are saved by Spark and they are sent upon creation to logstash
+  *  Using Kibana we have configured the index and created the dashboard for realtime analytics
+
+![KibanaDashboard](https://user-images.githubusercontent.com/82575873/114908191-79e04f00-9e39-11eb-8098-ee15d91eb6d1.JPG)
+
+
 
