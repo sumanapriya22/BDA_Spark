@@ -1,8 +1,10 @@
-
+# Create a spark Session basically is to ask spark for resources
 from pyspark.sql.session import SparkSession
+#Configuration required for Spark
 from pyspark import SparkContext
 from pyspark.sql.functions import explode, split, col, from_json
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType
+#Importing textblob classifier
 from textblob import TextBlob
 from pyspark.sql.functions import udf, col, lower, regexp_replace
 import re
@@ -43,9 +45,10 @@ def text_classification(words):
     return words2.drop("polarity1")
 
 if __name__ == "__main__":
+    #Creating a spark session with a name
     spark = SparkSession \
         .builder \
-        .appName("wordCounter").getOrCreate()
+        .appName("BDA").getOrCreate()
     spark.sparkContext.setLogLevel("ERROR")
     # Read the data from kafka
     schem = StructType([StructField("text", StringType(), True)])
@@ -70,7 +73,7 @@ if __name__ == "__main__":
     ds = df.select("opc.text")
     ds.printSchema()
     # df1 = ds.select((lower(regexp_replace('text', "[^a-zA-Z\\s]", "")).alias('text')))
-    
+    # remove null rows
     df1 = ds.na.drop()
     
     df2 = preprocessing(df1)
